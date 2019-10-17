@@ -13,11 +13,20 @@ namespace EFCFSchool
         {
             MyContext context = new MyContext();
 
-            var fosse = new School();
-            fosse.Name = " doranco";
+            var fosse = new Teacher();
+            fosse.Fisrtname = " etoo";
+            fosse.Lastname = "fils";
+            fosse.SchoolId = 1;
             
           
-            context.Schools.Add(fosse);
+           // context.Teachers.Add(fosse);
+          //  context.SaveChanges();
+
+
+            var modif = context.Teachers.FirstOrDefault(f => f.Id == 3);
+            modif.Lastname = "Wangueu";
+            context.Teachers.Update(modif);
+
             context.SaveChanges();
         }
     }
